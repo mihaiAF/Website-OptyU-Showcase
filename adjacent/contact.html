@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans:300,400" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+              integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+              integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="../css/style.css">
+
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css"
+              integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+              crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js"
+                integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA=="
+                crossorigin=""></script>
+
+        <script type="text/javascript" src="https://www.amcharts.com/lib/3/ammap.js"></script>
+        <script type="text/javascript" src="https://www.amcharts.com/lib/3/maps/js/romaniaLow.js"></script>
+
+        <script type="text/javascript">
+            AmCharts.makeChart("map", {
+                "type": "map",
+                "addClassNames": true,
+                "fontSize": 15,
+                "color": "#FFFFFF",
+                "projection": "mercator",
+                "backgroundAlpha": 1,
+                "backgroundColor": "rgba(80,80,80,1)",
+                "dataProvider": {
+                    "map": "romaniaLow",
+                    "getAreasFromMap": true,
+//                    "images": [
+//                        {
+//                            "selectable": true,
+//                            "longitude": 24.2571,
+//                            "latitude": 46.0294,
+//                            "svgPath": "M3.5,13.277C3.5,6.22,9.22,0.5,16.276,0.5C23.333,0.5,29.053,6.22,29.053,13.277C29.053,14.54,28.867,15.759,28.526,16.914C26.707,24.271,16.219,32.5,16.219,32.5C16.219,32.5,4.37,23.209,3.673,15.542C3.673,15.542,3.704,15.536,3.704,15.536C3.572,14.804,3.5,14.049,3.5,13.277C3.5,13.277,3.5,13.277,3.5,13.277M16.102,16.123C18.989,16.123,21.329,13.782,21.329,10.895C21.329,8.008,18.989,5.668,16.102,5.668C13.216,5.668,10.876,8.008,10.876,10.895C10.876,13.782,13.216,16.123,16.102,16.123C16.102,16.123,16.102,16.123,16.102,16.123",
+//                            "color": "rgba(216,75,75)",
+//                            "scale": 1.8
+//                        },
+//                        {
+//                            "selectable": true,
+//                            "longitude": 23.5115,
+//                            "latitude": 46.3657,
+//                            "svgPath": "M3.5,13.277C3.5,6.22,9.22,0.5,16.276,0.5C23.333,0.5,29.053,6.22,29.053,13.277C29.053,14.54,28.867,15.759,28.526,16.914C26.707,24.271,16.219,32.5,16.219,32.5C16.219,32.5,4.37,23.209,3.673,15.542C3.673,15.542,3.704,15.536,3.704,15.536C3.572,14.804,3.5,14.049,3.5,13.277C3.5,13.277,3.5,13.277,3.5,13.277M16.102,16.123C18.989,16.123,21.329,13.782,21.329,10.895C21.329,8.008,18.989,5.668,16.102,5.668C13.216,5.668,10.876,8.008,10.876,10.895C10.876,13.782,13.216,16.123,16.102,16.123C16.102,16.123,16.102,16.123,16.102,16.123",
+//                            "color": "rgba(216,75,75)",
+//                            "scale": 1.8
+//                        }
+//                    ],
+                    "areas": [
+                        {
+                            "id": "RO-AB",
+                            "title": "Alba",
+                            "color": "#0b6172"
+                        },
+                        {
+                            "id": "RO-SB",
+                            "title": "Sibiu",
+                            "color": "#0b6172"
+                        }
+                    ]
+                },
+                "balloon": {
+                    "horizontalPadding": 15,
+                    "borderAlpha": 0,
+                    "borderThickness": 1,
+                    "verticalPadding": 15
+                },
+                "areasSettings": {
+                    "color": "rgba(129,129,129,1)",
+                    "outlineColor": "rgba(80,80,80,1)",
+                    "rollOverOutlineColor": "rgba(80,80,80,1)",
+                    "rollOverBrightness": 20,
+                    "selectedBrightness": 20,
+                    "selectable": false,
+                    "unlistedAreasAlpha": 0,
+                    "unlistedAreasOutlineAlpha": 0
+                },
+                "imagesSettings": {
+                    "alpha": 1,
+                    "color": "rgba(129,129,129,1)",
+                    "outlineAlpha": 0,
+                    "rollOverOutlineAlpha": 0,
+                    "outlineColor": "rgba(80,80,80,1)",
+                    "rollOverBrightness": 20,
+                    "selectedBrightness": 20,
+                    "selectable": false
+                },
+                "linesSettings": {
+                    "color": "rgba(129,129,129,1)",
+                    "selectable": false,
+                    "rollOverBrightness": 20,
+                    "selectedBrightness": 20
+                },
+                "zoomControl": {
+                    "zoomControlEnabled": false,
+                    "homeButtonEnabled": false,
+                    "panControlEnabled": false,
+                    "right": 38,
+                    "bottom": 30,
+                    "minZoomLevel": 0.25,
+                    "gridHeight": 100,
+                    "gridAlpha": 0.1,
+                    "gridBackgroundAlpha": 0,
+                    "gridColor": "#FFFFFF",
+                    "draggerAlpha": 1,
+                    "buttonCornerRadius": 2
+                }
+            });
+
+        </script>
+
+    </head>
+    <body>
+
+        <!-- Website Header -->
+        <header>
+
+            <!-- Main Navigation -->
+            <nav>
+                <div class="aw-container aw-align-center">
+                    <a class="aw-logo aw-section-link" href="../index.html" target="_self"><img src="../img/logo/OptyU_Logo_White_PNG.png"
+                    class="aw-logo"></a>
+                    <ul class="aw-navigation">
+                        <li><a class="aw-section-link" href="../index.html" target="_self">Acasă</a></li>
+                        <li><a href="brands.html" target="_self">Despre Noi</a></li>
+                        <li><a href="contact.html" target="_self">Contact</a></li>
+                    </ul>
+                    <i class="icon-menu aw-nav-toggle"></i>
+                </div>
+            </nav>
+
+        </header>
+
+        <div class="jumbotron jumbotron-aboutUs">
+            <div class="container-aboutUs">
+                <h1 class="display-4">Contactați-ne</h1>
+                <p class="lead">Pentru orice informații suplimentare vă rugăm consultați datele de mai jos.</p>
+            </div>
+        </div>
+
+        <!--Contact address and Maps-->
+
+        <div class="map-wrapper">
+            <div id="map"
+                 style="
+                 width: 60%;
+                 height: 300px;
+                 margin: 25px 15px 25px 0;
+                 border: 2px solid #808080;
+
+             ">
+            </div>
+
+            <div class="country-locations">
+                <p>Rețeaua noastră de magazine este mereu în extindere și ne puteți găsi în următoarele orașe:</p>
+                <p><strong>Sibiu Shopping Mall: </strong>Strada Sibiului Nr. 5 Selimbar 557260</p>
+                <p><strong>Sibiu: </strong>Bulevardul Victoriei Nr. 32</p>
+                <p><strong>Alba Iulia: </strong>Strada Aici Nr. Cod Postal</p><br>
+                <p>*Detaliile aferente fiecarei locații le puteți găsi mai jos</p>
+            </div>
+
+        </div>
+
+        <div class="shadow-wrapper">
+            <div class="details-wrapper">
+
+                <div class="details-wrapper-1">
+                    <div class="addr1">
+                        <p><i class="fas fa-map-marker-alt"></i>OptyU Sibiu - Shopping Mall Sibiu, Strada Sibiului 5
+                            Selimbar 557260</p>
+                        <p><span class="collig"><i class="fas fa-phone"></i> Phone: </span>+40 766 229 116</p>
+                        <p><span class="collig"><i class="fas fa-mobile-alt"></i> Mobile: </span>+40 766 229 116</p>
+                        <p><span class="collig"><i class="fas fa-envelope"></i> Email: </span>contact@optyu.ro</p>
+                        <p><span class="collig"><i class="fas fa-fax"></i> Fax: </span>+40 766 229 116</p>
+                        <p><span class="collig"><i class="far fa-clock"></i> Program: </span>09:00 - 22:00</p>
+                    </div>
+
+                    <div id="mapid"></div>
+
+                </div>
+
+                <div class="details-wrapper-2">
+                    <div class="addr2">
+                        <p><i class="fas fa-map-marker-alt"></i>OptyU Sibiu - Bulevardul Victoriei Nr. 5</p>
+                        <p><span class="collig"><i class="fas fa-phone"></i> Phone: </span>+40 766 229 116</p>
+                        <p><span class="collig"><i class="fas fa-mobile-alt"></i> Mobile: </span>+40 766 229 116</p>
+                        <p><span class="collig"><i class="fas fa-envelope"></i> Email: </span>contact@optyu.ro</p>
+                        <p><span class="collig"><i class="fas fa-fax"></i> Fax: </span>+40 766 229 116</p>
+                        <p><span class="collig"><i class="far fa-clock"></i> Program: </span>09:00 - 22:00</p>
+                    </div>
+
+                    <div id="mapid2"></div>
+
+                </div>
+
+                <div class="details-wrapper-3">
+                    <div class="addr3">
+                        <p><i class="fas fa-map-marker-alt"></i>OptyU Alba Iulia - Strada Numele Numarul Codul Postal
+                        </p>
+                        <p><span class="collig"><i class="fas fa-phone"></i> Phone: </span>+40 766 229 116</p>
+                        <p><span class="collig"><i class="fas fa-mobile-alt"></i> Mobile: </span>+40 766 229 116</p>
+                        <p><span class="collig"><i class="fas fa-envelope"></i> Email: </span>contact@optyu.ro</p>
+                        <p><span class="collig"><i class="fas fa-fax"></i> Fax: </span>+40 766 229 116</p>
+                        <p><span class="collig"><i class="far fa-clock"></i> Program: </span>09:00 - 22:00</p>
+                    </div>
+
+                    <div id="mapid3"></div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            var mymap = L.map('mapid', {
+                zoomControl: false,
+                scrollWheelZoom: false,
+                dragging: false,
+                tap: false,
+                closePopupOnClick: false,
+            }).setView([45.776967, 24.167889], 16);
+
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWVwaGlzdG9waGVsbGVzIiwiYSI6ImNqbWFkbHpmZDA0cGQzcW55YzUzeGEwdDYifQ.aEeRZjShrl93mQ1mojnfyQ', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 18,
+                id: 'mapbox.streets',
+                accessToken: 'pk.eyJ1IjoibWVwaGlzdG9waGVsbGVzIiwiYSI6ImNqbWFkbHpmZDA0cGQzcW55YzUzeGEwdDYifQ.aEeRZjShrl93mQ1mojnfyQ'
+            }).addTo(mymap);
+
+            L.marker([45.776967, 24.167889]).addTo(mymap)
+                .bindPopup("<strong>OptyU - Sibiu Shopping Mall</strong><br>Strada Sibiului 5 Șelimbăr 557260<br><a href=''>Deschideti in Google Maps</a>").openPopup();
+
+
+            var mymap2 = L.map('mapid2', {
+                zoomControl: false,
+                scrollWheelZoom: false,
+                dragging: false,
+                tap: false,
+                closePopupOnClick: false,
+            }).setView([45.789326, 24.142669], 16);
+
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWVwaGlzdG9waGVsbGVzIiwiYSI6ImNqbWZkYjI1ZzA2NXQzcnV0MGp2aGpsOTcifQ.nFaEFgNBIhSBidAp5lEXpA', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 18,
+                id: 'mapbox.streets',
+                accessToken: 'pk.eyJ1IjoibWVwaGlzdG9waGVsbGVzIiwiYSI6ImNqbWZkYjI1ZzA2NXQzcnV0MGp2aGpsOTcifQ.nFaEFgNBIhSBidAp5lEXpA'
+            }).addTo(mymap2);
+
+            L.marker([45.789326, 24.142669]).addTo(mymap2)
+                .bindPopup("<strong>OptyU - Sibiu</strong><br>Bulevardul Victoriei Nr. 32<br><a href='https://www.google.com/maps/place/Bulevardul+Victoriei+32,+Sibiu,+Rom%C3%A2nia/@45.788701,24.1403914,16.22z/data=!4m5!3m4!1s0x474c67893bb851c9:0x448ff6f318526242!8m2!3d45.7888019!4d24.142731'>Deschideti in Google Maps</a>").openPopup();
+
+
+            var mymap3 = L.map('mapid3', {
+                zoomControl: false,
+                scrollWheelZoom: false,
+                dragging: false,
+                tap: false,
+                closePopupOnClick: false,
+            }).setView([46.073515, 23.582759], 16);
+
+            L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWVwaGlzdG9waGVsbGVzIiwiYSI6ImNqbWZlOXBidDF1dXYzc3B0dXE1OHRoN20ifQ.P0gFJOkbS5qMccZ9CuWWCw', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 18,
+                id: 'mapbox.streets',
+                accessToken: 'pk.eyJ1IjoibWVwaGlzdG9waGVsbGVzIiwiYSI6ImNqbWZlOXBidDF1dXYzc3B0dXE1OHRoN20ifQ.P0gFJOkbS5qMccZ9CuWWCw'
+            }).addTo(mymap3);
+
+            L.marker([46.073515, 23.582759]).addTo(mymap3)
+                .bindPopup("<strong>OptyU - Alba Iulia Shopping Mall</strong><br>Strada Numele Numarul Codul Postal<br><a href='https://www.google.com/maps/place/Bulevardul+Victoriei+32,+Sibiu,+Rom%C3%A2nia/@45.788701,24.1403914,16.22z/data=!4m5!3m4!1s0x474c67893bb851c9:0x448ff6f318526242!8m2!3d45.7888019!4d24.142731'>Deschideti in Google Maps</a>").openPopup();
+
+
+        </script>
+
+
+        <!--Contact Form-->
+
+        <form action="../processing/action.php" method="POST">
+
+            <div><i class="fas fa-user-circle"></i></div>
+            <p>Pentru a ne transmite un mesaj, va rugam utilizati formularul de mai jos si veti fi contactat in cel mai
+                scurt timp de un reprezentant OptyU.</p>
+
+            <div class="row">
+                <input type="text" name="email" required/>
+                <label>Email</label>
+            </div>
+
+            <div class="row">
+                <input type="text" name="nume" required/>
+                <label>Nume</label>
+            </div>
+
+            <div class="row">
+                <input type="text" name="prenume" required/>
+                <label>Prenume</label>
+            </div>
+
+            <div class="row">
+                <input type="number" name="telefon" required/>
+                <label>Telefon</label>
+            </div>
+
+            <div class="row">
+                <textarea name="description" required></textarea>
+                <label>Cu ce va putem ajuta</label>
+            </div>
+
+            <!--<div class="row">-->
+            <!--<input type="checkbox" name="fancy-checkbox" id="fancy-checkbox"/>-->
+            <!--<label for="fancy-checkbox">Checkbox</label>-->
+            <!--</div>-->
+
+            <button type="submit" value="Submit" tabindex="0"><i class="fas fa-envelope"></i> Trimite</button>
+        </form>
+
+        <!-- Website Footer -->
+        <footer>
+
+            <div class="social-container">
+                <ul class="social-icons">
+                    <h1 class="social-calltoaction">Va asteptam si pe retelele de socializare</h1>
+                    <li><a href="https://www.facebook.com/OptyUneaPerfecta/" target="_blank"><i
+                            class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.instagram.com/explore/locations/1031301254/optyu/" target="_blank"><i
+                            class="fab fa-instagram"></i></a></li>
+                    <hr>
+                    <li><a href="mailto:contact@optyu.ro"><i class="fas fa-envelope"></i></a></li>
+                </ul>
+
+                <div class="copyright">
+                    <span>Politica de confidentialitate</span>
+                    <span>Termeni si conditii</span><br>
+                    <span class="copy">Copyright &copy OptyU 2018</span>
+                </div>
+            </div>
+
+        </footer>
+
+        <script src="../js/main.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+
+    </body>
+</html>
